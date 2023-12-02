@@ -22,8 +22,10 @@ namespace TO_DO_List
         {
             
             dt.Rows.Add(txtTarefa.Text,cbxPrioridade.Text);
+            Limpar();
+            
         }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             dt.Columns.Add("Tarefa", typeof(string));
@@ -41,15 +43,21 @@ namespace TO_DO_List
             }
 
         }
-
+        
         private void dtgTarefa_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = dtgTarefa.Rows[e.RowIndex];
 
-            if(MessageBox.Show(string.Format("Tem certeza que deseja excluir ?",row.Cells["Tarefa"].Value),"Confirmação",MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if(MessageBox.Show(string.Format("Tem certeza que deseja excluir ?",row.Cells["Tarefa"].Value),"Aviso",MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 dt.Rows.RemoveAt(e.RowIndex);
             }
+        }
+
+        private void Limpar()
+        {
+            txtTarefa.Clear();
+            cbxPrioridade.SelectedIndex = -1;
         }
     }
 }
