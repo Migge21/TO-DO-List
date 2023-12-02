@@ -33,13 +33,23 @@ namespace TO_DO_List
          
             DataGridViewButtonColumn button = new DataGridViewButtonColumn();
             {
-                button.Name = "button";
-                button.HeaderText = "Button";
-                button.Text = "Button";
+                button.Name = "btnRemover";
+                button.HeaderText = "Remover Tarefa";
+                button.Text = "Remover";
                 button.UseColumnTextForButtonValue = true; //dont forget this line
                 dtgTarefa.Columns.Add(button);
             }
 
+        }
+
+        private void dtgTarefa_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dtgTarefa.Rows[e.RowIndex];
+
+            if(MessageBox.Show(string.Format("Tem certeza que deseja excluir ?",row.Cells["Tarefa"].Value),"Confirmação",MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                dt.Rows.RemoveAt(e.RowIndex);
+            }
         }
     }
 }

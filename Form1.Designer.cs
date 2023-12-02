@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.txtTarefa = new System.Windows.Forms.RichTextBox();
@@ -111,11 +112,13 @@
             this.dtgTarefa.RowTemplate.Height = 24;
             this.dtgTarefa.Size = new System.Drawing.Size(1108, 242);
             this.dtgTarefa.TabIndex = 7;
+            this.dtgTarefa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgTarefa_CellContentClick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1170, 563);
             this.Controls.Add(this.dtgTarefa);
             this.Controls.Add(this.label2);
@@ -123,6 +126,7 @@
             this.Controls.Add(this.txtTarefa);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
